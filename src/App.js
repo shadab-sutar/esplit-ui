@@ -6,9 +6,17 @@ import {Layout, Header, Navigation, Drawer, Content,
         Card, CardTitle, CardText, CardActions, CardMenu,
         Button, IconButton, Textfield, Grid, Cell,
         Footer, FooterSection, FooterDropDownSection,
-        FooterLinkList } from 'react-mdl';
+        FooterLinkList, Checkbox } from 'react-mdl';
+
+// React Router Dom
+import {Link} from 'react-router-dom';
 
 class App extends Component {
+
+    login(){
+        document.getElementById("regsitrationNav").click();
+    }
+
   render() {
     return (
       <div className="App">
@@ -18,7 +26,7 @@ class App extends Component {
                   <Navigation>
                       <a href="/">About</a>
                       <a href="/">Policies</a>
-                      <a href="/">Sign Up</a>
+                      <a href="/#/register">Sign Up</a>
                       <a href="/">Login</a>
                   </Navigation>
               </Header>
@@ -26,77 +34,42 @@ class App extends Component {
                   <Navigation>
                       <a href="/">About</a>
                       <a href="/">Policies</a>
-                      <a href="/">Sign Up</a>
+                      <a href="/#/register">Sign Up</a>
                       <a href="/">Login</a>
                   </Navigation>
               </Drawer>
               <Content>
                   <div className="page-content">
                     <Grid className="demo-grid-2">
-                        <Cell col={8} style={{textAlign:'center'}}>
-                            <h1>Welcome to eSplitz</h1>
-                            <h5 style={{textAlign:'justify'}}>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Mauris sagittis pellentesque lacus eleifend lacinia...
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Mauris sagittis pellentesque lacus eleifend lacinia...
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Mauris sagittis pellentesque lacus eleifend lacinia...
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Mauris sagittis pellentesque lacus eleifend lacinia...
-                            </h5>
-                            <h5 style={{textAlign:'justify'}}>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Mauris sagittis pellentesque lacus eleifend lacinia...
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Mauris sagittis pellentesque lacus eleifend lacinia...
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Mauris sagittis pellentesque lacus eleifend lacinia...
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Mauris sagittis pellentesque lacus eleifend lacinia...
-                            </h5>
-                            <h5 style={{textAlign:'justify'}}>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Mauris sagittis pellentesque lacus eleifend lacinia...
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Mauris sagittis pellentesque lacus eleifend lacinia...
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Mauris sagittis pellentesque lacus eleifend lacinia...
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Mauris sagittis pellentesque lacus eleifend lacinia...
-                            </h5>
-                            <h5 style={{textAlign:'justify'}}>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Mauris sagittis pellentesque lacus eleifend lacinia...
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Mauris sagittis pellentesque lacus eleifend lacinia...
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Mauris sagittis pellentesque lacus eleifend lacinia...
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Mauris sagittis pellentesque lacus eleifend lacinia...
-                            </h5>
+                        <Cell col={8} style={{textAlign:'center', height:'85vh'}} className="bgbanner">
+                            <img src={require("./assests/lp.jpg")} alt="banner" width="100%" height="100%" />
                         </Cell>
-                        <Cell col={4}>
-                            <Card shadow={0} style={{width: '70%', margin: 'auto'}}>
-                                <CardTitle style={{color: '#fff', height: '200px', background: 'url(http://www.getmdl.io/assets/demos/welcome_card.jpg) center / cover'}}>Welcome</CardTitle>
+                        <Cell col={4} tablet={12}>
+                            <Card shadow={4} style={{width: '100%', height:'100%', margin: 'auto', textAlign:'center'}}>
+                                <CardTitle><h1>Welcome to eSplitz</h1></CardTitle>
                                 <CardText>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    Mauris sagittis pellentesque lacus eleifend lacinia...
+                                    Not a Member Yet? <a href="/#/register">Sign Up</a>
                                 </CardText>
-                                <CardActions border>
+                                <CardActions>
                                     <Textfield
                                         onChange={() => {}}
                                         label="Username"
                                         floatingLabel
-                                        style={{width: '100%'}}
+                                        style={{width: '70%'}}
                                     />
                                     <Textfield
                                         onChange={() => {}}
                                         label="Password"
+                                        type="password"
                                         floatingLabel
-                                        style={{width: '100%'}}
+                                        style={{width: '70%'}}
                                     />
-                                    <Button colored color="primary" raised>Login</Button>
+                                    <p>
+                                        <Button colored color="primary" raised style={{width:'70%', marginTop:'25px'}} onClick={this.login.bind(this)}>Login</Button>
+                                    </p>
+                                    <p style={{marginLeft:'70px', textAlign:'left'}}>
+                                        <Checkbox label="Remember Me" ripple defaultChecked style={{textAlign:'left'}}/>
+                                    </p>
                                 </CardActions>
                                 <CardMenu style={{color: '#fff'}}>
                                     <IconButton name="share" />
@@ -105,7 +78,7 @@ class App extends Component {
                         </Cell>
                     </Grid>
                   </div>
-              </Content>
+                <Link id="regsitrationNav" to="/register" />
                 <Footer size="mega">
                     <FooterSection type="middle">
                         <FooterDropDownSection title="Features">
@@ -147,6 +120,7 @@ class App extends Component {
                         </FooterLinkList>
                     </FooterSection>
                 </Footer>
+                </Content>
             </Layout>
         </div>
     </div>
