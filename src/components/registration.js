@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 
+import '../App.css';
+
 //React MDL Components Import
 import {Layout, Header, Navigation, Drawer, Content,
     Card, CardTitle, CardText, CardActions, CardMenu,
     Button, IconButton, Textfield, Grid, Cell,
     Footer, FooterSection, FooterDropDownSection,
-    FooterLinkList, Checkbox } from 'react-mdl';
+    FooterLinkList, RadioGroup, Radio } from 'react-mdl';
 
 // React Router Dom
 import {Link} from 'react-router-dom';
@@ -23,7 +25,7 @@ class Registration extends Component{
                                 <a href="/">About</a>
                                 <a href="/">Policies</a>
                                 <a href="/#/register">Sign Up</a>
-                                <a href="/">Login</a>
+                                <a href="/#/">Login</a>
                             </Navigation>
                         </Header>
                         <Drawer title="eSplitz">
@@ -31,7 +33,7 @@ class Registration extends Component{
                                 <a href="/">About</a>
                                 <a href="/">Policies</a>
                                 <a href="/#/register">Sign Up</a>
-                                <a href="/">Login</a>
+                                <a href="/#/">Login</a>
                             </Navigation>
                         </Drawer>
                         <Content>
@@ -42,14 +44,26 @@ class Registration extends Component{
                                     </Cell>
                                     <Cell col={4} tablet={12}>
                                         <Card shadow={4} style={{width: '100%', height:'100%', margin: 'auto', textAlign:'center'}}>
-                                            <CardTitle><h1>Welcome to eSplitz</h1></CardTitle>
+                                            <CardTitle style={{justifyContent:'center'}}>
+                                                <h3>Create Account</h3>
+                                            </CardTitle>
                                             <CardText>
-                                                Not a Member Yet? <a href="/#/register">Sign Up</a>
+                                                Already a Member? <a href="/#/">Login</a>
                                             </CardText>
                                             <CardActions>
+                                                <RadioGroup name="accountType" value="personal">
+                                                    <Radio value="personal" ripple className="radios">Personal</Radio>
+                                                    <Radio value="business" ripple>Business</Radio>
+                                                </RadioGroup>
                                                 <Textfield
                                                     onChange={() => {}}
                                                     label="Username"
+                                                    floatingLabel
+                                                    style={{width: '70%'}}
+                                                />
+                                                <Textfield
+                                                    onChange={() => {}}
+                                                    label="Email Address"
                                                     floatingLabel
                                                     style={{width: '70%'}}
                                                 />
@@ -60,11 +74,18 @@ class Registration extends Component{
                                                     floatingLabel
                                                     style={{width: '70%'}}
                                                 />
+                                                <Textfield
+                                                    onChange={() => {}}
+                                                    label="Comfirm Password"
+                                                    type="password"
+                                                    floatingLabel
+                                                    style={{width: '70%'}}
+                                                />
                                                 <p>
-                                                    <Button colored color="primary" raised style={{width:'70%', marginTop:'25px'}}>Login</Button>
+                                                    <Button colored color="primary" raised style={{width:'70%', marginTop:'25px'}}>Sign Up</Button>
                                                 </p>
-                                                <p style={{marginLeft:'70px', textAlign:'left'}}>
-                                                    <Checkbox label="Remember Me" ripple defaultChecked style={{textAlign:'left'}}/>
+                                                <p style={{marginLeft:'70px', marginRight:'70px', textAlign:'left'}}>
+                                                    By clicking on the Sign Up button, you agree to our Terms and Conditions and Privacy Policies
                                                 </p>
                                             </CardActions>
                                             <CardMenu style={{color: '#fff'}}>

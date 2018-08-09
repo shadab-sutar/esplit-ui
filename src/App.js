@@ -46,7 +46,7 @@ class App extends Component {
                         </Cell>
                         <Cell col={4} tablet={12}>
                             <Card shadow={4} style={{width: '100%', height:'100%', margin: 'auto', textAlign:'center'}}>
-                                <CardTitle><h1>Welcome to eSplitz</h1></CardTitle>
+                                <CardTitle style={{justifyContent:'center'}}><h3>Welcome to eSplitz</h3></CardTitle>
                                 <CardText>
                                     Not a Member Yet? <a href="/#/register">Sign Up</a>
                                 </CardText>
