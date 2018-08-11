@@ -78,7 +78,7 @@ class App extends Component {
                         </Cell>
                     </Grid>
                   </div>
-                <Link id="regsitrationNav" to="/register" />
+                <Link id="regsitrationNav" to="/home" />
                 <Footer size="mega">
                     <FooterSection type="middle">
                         <FooterDropDownSection title="Features">
